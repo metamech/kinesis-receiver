@@ -1,24 +1,14 @@
-// So simple it's hardly an application. We love tiny applications!
-// Receive UDP packets and shove them into Kinesis.
+var receiver = require('./lib/receiver')
 
-var dgram = require('dgram')
-var server = dgram.createSocket('udp4')
+// -----------------------------------------
+// Application Start up
+// -----------------------------------------
 
-server.on('error', function(err) {
-    console.log('server error: \n', err.stack)
-    server.close()
-})
+// TODO auto-configure
 
-server.on('message', function(msg, rinfo) {
-    console.log('server got: ' + msg + " from " + rinfo.address + ":" + rinfo.port)
-})
+var server = receiver.createServer({port:41234})
 
-server.on('listening', function() {
-    var address = server.address()
-    console.log('server listening ' + address.address + ':' + address.port)
-})
-
-server.bind(41234)
+server.start()
 
 // TODO listen for app termination to log shutdown (if possible)
 // TODO catch exceptions and log before shutdown
