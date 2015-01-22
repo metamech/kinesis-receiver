@@ -1,12 +1,11 @@
 var receiver = require('./lib/receiver')
+var config = require('./lib/config')
 
 // -----------------------------------------
 // Application Start up
 // -----------------------------------------
 
-// TODO auto-configure
-
-var server = receiver.createServer({port:41234})
+var server = receiver.createServer(config.cloud())
 
 server.start()
 

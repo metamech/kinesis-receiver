@@ -7,7 +7,7 @@ Project settings and dependencies are defined in a standard npm package.json
 file. Ensure dependencies are properly installed by running `npm install`
 in the project directory before attempting to run the server.
 
-The server should be run using `npm start`
+The server should be run using `npm start` and run tests using `npm test`.
 
 ## Configuration
 
