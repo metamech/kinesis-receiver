@@ -12,4 +12,3 @@ server.start()
 // TODO listen for app termination to log shutdown (if possible)
 // TODO catch exceptions and log before shutdown
 // TODO turn this into a configurable object/worker that can be forked
-// TODO add Mocha.js tests
