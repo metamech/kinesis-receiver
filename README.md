@@ -74,3 +74,9 @@ aws_secret_access_key = your_secret_key
 The AWS [Getting Started Guide][guide] covers other means to load credentials.
 
 [guide]: http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-intro.html
+
+# Testing
+
+```bash
+echo "hello world 3" | nc -u -w 0 127.0.0.1 41234
+```

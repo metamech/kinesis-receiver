@@ -11,7 +11,7 @@
     "dependencies": {
         "aws-sdk": "latest",
         "request": "latest",
-        "dynamodb": "latest"
+        "restify": "latest"
     },
     "devDependencies": {
         "mocha": "latest",
