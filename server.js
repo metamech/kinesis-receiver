@@ -1,14 +1,18 @@
+// Setup logging first...
+var pkg = require('./package.json')
+var log = require('./lib/log').getLog(pkg)
+
+// Now load app packages
 var config = require('./lib/config')
 var api = require('./lib/api')
 var simpledb = require('./lib/simpledb')
-var pkg = require('./package.json')
 
 // -----------------------------------------
 // Application Start up
 // -----------------------------------------
 config.load(function(err, conf) {
     if (err) {
-        console.error(err)
+        log.error(err)
         return
     }
     // conf is mode, api, instance
@@ -20,7 +24,7 @@ config.load(function(err, conf) {
             // dev specific setup
             break
         default:
-            console.error('Unsupported configuration mode', conf.mode)
+            log.error('Unsupported configuration mode', conf.mode)
             return
     }
     conf.name = pkg.name
@@ -28,13 +32,14 @@ config.load(function(err, conf) {
 
     // Start up the API
     var apiServer = api.createServer(conf)
-    apiServer.start(function(err, conf) {
+    apiServer.start(function(err, c) {
+        log.info(c, 'api started')
         // Advertize the API in SimpleDB
         var db = simpledb.createDB()
         var domain = db.getDomain('cluster')
-        domain.putAttributes(conf.instance, conf, function(err) {
+        domain.putAttributes(c.instance, c, function(err) {
             if (err) {
-                console.error(err)
+                log.error(err)
             }
         })
     })

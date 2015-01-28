@@ -10,11 +10,12 @@
     },
     "dependencies": {
         "aws-sdk": "latest",
+        "bunyan":  "latest",
         "request": "latest",
         "restify": "latest"
     },
     "devDependencies": {
-        "mocha": "latest",
+        "mocha":  "latest",
         "should": "latest"
     }
 }

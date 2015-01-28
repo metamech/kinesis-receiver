@@ -8,6 +8,11 @@ file. Ensure dependencies are properly installed by running `npm install`
 in the project directory before attempting to run the server.
 
 The server should be run using `npm start` and run tests using `npm test`.
+Logging uses [Bunyan][] so running locally it is advised to
+`npm install -g bunyan` and run the server using `npm start | bunyan`
+so console logging is pretty printed.
+
+[Bunyan]: https://github.com/trentm/node-bunyan
 
 ## Configuration
 
