@@ -2,6 +2,8 @@
 var pkg = require('./package.json')
 var log = require('./lib/log').getLog(pkg)
 
+log.info({version: pkg.version || '---'},'Starting')
+
 // Now load app packages
 var config = require('./lib/config')
 var api = require('./lib/api')
