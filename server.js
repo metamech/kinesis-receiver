@@ -37,7 +37,7 @@ config.load(function(err, conf) {
     apiServer.start(function(err, c) {
         log.info(c, 'api started')
         // Advertize the API in SimpleDB
-        var db = simpledb.createDB()
+        var db = simpledb.createDB({region: conf.region})
         var domain = db.getDomain('cluster')
         domain.putAttributes(c.instance, c, function(err) {
             if (err) {
