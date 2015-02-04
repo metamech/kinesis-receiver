@@ -19,7 +19,9 @@ var commands = {
                         action: function() {
                             db().listDomains(function(err, domains) {
                                 exitOnError(err)
-                                if (domains.length < 10) {
+                                if (!domains) {
+                                    console.log()
+                                } else if (domains.length < 10) {
                                     console.log(JSON.stringify(domains))
                                 } else {
                                     console.log(JSON.stringify(domains, null, 2))
